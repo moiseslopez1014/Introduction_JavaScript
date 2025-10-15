@@ -286,7 +286,7 @@ function cuentaAtras(i) {
 }
 
 cuentaAtras(5);
-*/
+
 //5
 
 function sumaRe(i) {
@@ -389,7 +389,65 @@ console.log(nombre, edad);
 const {nombre: nombrePersona, edad: edadPersona} = persona11;
 
 console.log(nombrePersona, edadPersona);
-
 //REPASO
-
+//1
 console.log('====== REPASO ======');
+
+const libros = [
+  {
+    titulo: 'JavaScript for dummies',
+    autor: 'Alejandro',
+    año: 2025
+  },
+  {
+    titulo: 'JavaScript o "No se como no se jodio"',
+    autor: 'Moises',
+    año: 2025
+  },
+  {
+    titulo: 'Yo ya llevo disociando 2 horas',
+    autor: 'estudiante Javascript',
+    año: 2025
+  },
+  {
+    titulo: 'JavaScript: o por que odio los seres humanos',
+    autor: 'Brendan Eich',
+    año: 1995
+  },
+]
+
+libros.forEach(function(elemento) {
+  console.log(elemento.titulo);
+});
+
+
+//2
+
+const arrayNumeros = [3,56,342,25,246,8,43,5,2,5,77,5];
+
+console.log(arrayNumeros.reduce((acc, val) => acc + val, 0));
+//3
+
+function mayoresQue(n) {
+  const arrayNumeros = [3,56,342,25,246,8,43,5,2,5,77,5];
+  return arrayNumeros.filter((val) => val > n );
+}
+
+console.log(mayoresQue(30));
+
+//4
+
+function conteoPalabras(n) {
+  n = n.split(" ");
+  return console.log(n.length);
+}
+conteoPalabras('Esta frase tiene cinco palabras');
+*/
+
+//5
+
+const arrayDesordenado = [76,434,533,6,787,4,2,234,5,99];
+
+const ordenamos = [...arrayDesordenado].sort((a,b) => a - b)
+
+console.log(ordenamos);
