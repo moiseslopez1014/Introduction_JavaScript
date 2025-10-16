@@ -445,9 +445,25 @@ conteoPalabras('Esta frase tiene cinco palabras');
 */
 
 //5
-
+/*
 const arrayDesordenado = [76,434,533,6,787,4,2,234,5,99];
 
 const ordenamos = [...arrayDesordenado].sort((a,b) => a - b)
 
 console.log(ordenamos);
+*/
+
+
+const notas = [8,4,6,9,5,3];
+
+notas.forEach((val) => { 
+  const estado = val < 5 ? 'suspenso' : 'aprobado';
+  console.log('La nota ' + val + ' es ' + estado);
+});
+
+
+for (let i = 0; i < notas.length; i++) {
+  const estado = notas[i] < 5 ? 'suspenso' : 'aprobado';
+  console.log('La nota ' + notas[i] + ' es ' + estado);
+
+}
