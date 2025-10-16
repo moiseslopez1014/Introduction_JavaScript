@@ -103,3 +103,72 @@ let conversionATexto = inventario.map((item, indice) => `Indice: ${indice} - Pro
 
 console.log(conversionATexto);
 
+//9
+
+const estudiantes = [
+  {
+    nombre: 'Juan',
+    edad: 22,
+    notas: [6.7,7,7],
+  },
+  {
+    nombre:'Teresa',
+    edad: 25,
+    notas: [7.25,5.5,8],
+  },
+  {
+    nombre:'Daniel',
+    edad: 28,
+    notas: [6,4.75,5.25],
+  },
+  {
+    nombre: 'Abraham',
+    edad: 22,
+    notas: [8.4,3,9],
+  },
+]
+
+function mediaNotas(notas) {
+  let suma = notas.reduce((total, nota) => total + nota, 0);
+  return suma / notas.length;
+}
+
+estudiantes.forEach((alumno) => {
+  alumno.media = mediaNotas(alumno.notas);
+});
+
+console.log(estudiantes);
+
+//10
+
+estudianteConMedia = estudiantes.map(({nombre, media}) => ({nombre, media}))
+
+const estudianteConMediaOrdenado = [...estudianteConMedia].sort((a,b) => b.media - a.media);
+
+console.log(`${estudianteConMediaOrdenado[0].nombre} sabe lo que se hace porque tiene un ${estudianteConMediaOrdenado[0].media}`);
+console.log(`${estudianteConMediaOrdenado[1].nombre} tambien esta a la altura con un ${estudianteConMediaOrdenado[1].media}`);
+console.log(`${estudianteConMediaOrdenado[2].nombre} esta en la linea con ${estudianteConMediaOrdenado[2].media}`);
+console.log(`${estudianteConMediaOrdenado[3].nombre} se arriesga a un tiron de orejas con ${estudianteConMediaOrdenado[3].media}`);
+
+//11
+
+const arrayConNotas = [[5,6,7],[8,9,10]]
+
+function sumadorDeNotas(n) {
+  if (n.length === 0) return 0; //finaliza cuando extraiga todos los numeros del subarray 
+
+  const [primero, ...resto] = n; //coge los array y les saca uno de los valores por un lado y el resto por otro
+
+  if (Array.isArray(primero)) //Si el valor sacado sigue siendo un array 
+    {
+    return sumadorDeNotas(primero) + sumadorDeNotas(resto); //Ejecuta la funcion por dos en paralelo, con valor separado y resto
+    } 
+    else 
+    {
+    return primero + sumadorDeNotas(resto); //cuando el valor separado es numero lo suma al final y repite funcion con resto de arrays
+    }
+  }
+
+const resultadoSuma = sumadorDeNotas(arrayConNotas);
+  console.log(resultadoSuma);
+  
