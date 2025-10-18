@@ -172,3 +172,45 @@ function sumadorDeNotas(n) {
 const resultadoSuma = sumadorDeNotas(arrayConNotas);
   console.log(resultadoSuma);
   
+
+//12
+
+const usuarios = [
+  {
+    nombre: 'GerardoElPotingues',
+    edad: 56,
+    email: 'eleboro@japierdole.pl',
+  },
+  {
+    nombre: 'Snake',
+    edad: 44,
+    email: 'solid@metalgear.jp',
+  },
+  {
+    nombre: 'Kratos6',
+    edad: 22,
+    email: 'kratos6@zoni.com',
+  },
+  {
+    nombre: 'Croft',
+    edad: 30,
+    email: 'idontsendnudes@eidos.com',
+  },
+  {
+    nombre: 'fisher',
+    edad: 61,
+    email: 'stealthboy@ubizo.fr',
+  },
+]
+
+function buscarUsuario(email) {
+  for (let i = 0; i < usuarios.length; i++) {
+    if (usuarios[i].email === email) {
+      return usuarios[i];
+    }
+  }
+}
+
+const {nombre, edad, email} = buscarUsuario('eleboro@japierdole.pl');
+
+console.log(`Usuario: ${nombre} | Edad: ${edad} | Email: ${email}`);
