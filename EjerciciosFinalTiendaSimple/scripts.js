@@ -28,7 +28,7 @@ console.log('//2 Mostrar el inventario incial');
 
 productos.forEach((producto) => { //por cada objeto
   const {nombre, precio, stock} = producto; //rescata nombre, precio y stock
-  console.log(`Producto: ${nombre} | Precio: ${precio} | Stock: ${stock}`) // muestra lo rescatado en texto formateado
+  console.log(`Producto: ${nombre} | Precio: ${precio}  | Stock: ${stock}`) // muestra lo rescatado en texto formateado
 });
 
 //3 Agregar un nuevo producto
@@ -38,7 +38,7 @@ function agregarProducto(nombre, precio, stock) { //introduce 3 parametros
   productos.push({nombre: nombre, precio: precio, stock: stock}) //agrega un objeto con claves nombre ,precio, stock
 }
 
-agregarProducto('altavoces', 49.99, 24);
+agregarProducto('Altavoces', 49.99, 24);
 
 //4 Actualizar el stock de un producto
 console.log('//4 Actualizar el stock de un producto');
@@ -65,7 +65,7 @@ function calcularValorTotal() {
   productos.forEach((objeto) => { //iteracion entre objetos del array
     valorTotal+= objeto.precio * objeto.stock; //multiplica precio y stock de objeto y lo suma a valortotal
   })
-  console.log(`El valor total de todo el inventario es de: ${valorTotal} `); //mensaje con el calculo
+  console.log(`El valor total de todo el inventario es de: ${valorTotal} Euros`); //mensaje con el calculo
   return valorTotal;
 }
 
@@ -98,18 +98,28 @@ console.log('//7 Aplicar Destructuracion');
 
 const {nombre: nombreEncontrado, precio: precioEncontrado} = objetoEncontrado;
 
-console.log(` --Nombre: ${nombreEncontrado} -- Precio: ${precioEncontrado}-- `);
+console.log(` --Nombre: ${nombreEncontrado} -- Precio: ${precioEncontrado} Euros-- `);
 
 //8 Eliminar un producto
 console.log('//8 Eliminar un producto');
 
 function eliminarProducto(nombre) { //funcion declarada
-  productos.forEach((objeto) => { // recorre el array de objetos
-    if (objeto.nombre === nombre) { // si en el objeto actual coinciden nombres
-      objeto.pop(objeto); //elimina objeto del array
-    }
-  })}
+  const indiceEliminar = productos.findIndex(objeto => objeto.nombre === nombre) //encuentra nombre en el array y asigna numero de indice de su objeto (si no encuentra asigna -1)
+  if (indiceEliminar !== -1) { // si indice no es igual a -1 (importante, si hacemos el splice con -1 borraria el ultimo objeto del array al introducir un nombre mal)
+    productos.splice(indiceEliminar, 1); //elimina objeto del array
+    console.log(`El producto ${nombre} encontrado y eliminado`);
+  }
+  else {
+    console.log(`No se ha encontrado ${nombre}`);
+  }
+}
 
-  eliminarProducto('Impresora');
+  eliminarProducto('Tarjeta de Red');
 
-console.log(object);
+// 9 Mostrar todo el inventario
+console.log('// 9 Mostrar todo el inventario');
+//Literal es hacer un console.log, o repetir el ejercicio 2 
+productos.forEach((producto) => { //por cada objeto
+  const {nombre, precio, stock} = producto; //rescata nombre, precio y stock
+  console.log(`Producto: ${nombre} | Precio: ${precio}  | Stock: ${stock}`) // muestra lo rescatado en texto formateado
+});
